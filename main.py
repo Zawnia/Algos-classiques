@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from cas_de_test import generer_points_aleatoires, generer_points_cercle, generer_points_carre
 from visualisation import afficher_enveloppe
 from algorithms.glouton import trouver_enveloppe_jarvis
+from algorithms.graham_scan import trouver_enveloppe_graham
+
 
 # =============================================================================
 # PARTIE 1 : TEST VISUEL SIMPLE
@@ -11,7 +13,7 @@ from algorithms.glouton import trouver_enveloppe_jarvis
 print("--- Lancement du Test Visuel Simple ---")
 
 # 1. Générer un nuage de points
-N_VISUEL = 50
+N_VISUEL = 100
 #points_visu = cas_de_test.generer_points_aleatoires(N_VISUEL)
 points_visu = generer_points_cercle(N_VISUEL // 2) # Test "cercle"
 
@@ -30,7 +32,7 @@ afficher_enveloppe(
 
 
 # =============================================================================
-# PARTIE 2 : ANALYSE DE COMPLEXITÉ (HYPER LISIBLE)
+# PARTIE 2 : ANALYSE DE COMPLEXITÉ 
 # =============================================================================
 print("\n--- Lancement de l'Analyse de Complexité ---")
 
@@ -47,11 +49,11 @@ algos_a_tester = [
         "func": trouver_enveloppe_jarvis,
         "generateur": generer_points_cercle
     },
-    # {
-    #     "nom": "Graham Scan (Cas Moyen)",
-    #     "func": trouver_enveloppe_graham, # Quand vous l'aurez
-    #     "generateur": cas_de_test.generer_points_aleatoires
-    # }
+    {
+         "nom": "Graham Scan (Cas Moyen)",
+         "func": trouver_enveloppe_graham, 
+         "generateur": generer_points_aleatoires
+    }
 ]
 
 # Définir les tailles de 'n' (nombre de points) à tester

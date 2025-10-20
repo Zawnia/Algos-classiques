@@ -6,7 +6,7 @@ def appliquer_scan_sklansky(polygone_ordonne: List[Point]) -> List[Point]:
     Calcule l'enveloppe convexe d'un polygone simple (ou d'une liste 
     de points déjà triés par angle) en temps linéaire O(n).
     
-    C'est la routine "Sklansky" [cite: 16, 17] utilisée dans Graham et d'autres algos.
+    C'est la routine "Sklansky" utilisée dans Graham et d'autres algos.
     Elle utilise une pile pour éliminer les virages "rentrants".
     """
     
@@ -39,7 +39,7 @@ def appliquer_scan_sklansky(polygone_ordonne: List[Point]) -> List[Point]:
             
             if o <= 0: # Virage à droite ou colinéaire
                 # Le point 'dernier' est à l'intérieur ou sur le segment
-                # On le supprime de la pile ("étape retour" [cite: 18])
+                # On le supprime de la pile ("étape retour" )
                 pile.pop()
             else:
                 # C'est un virage à gauche, c'est bon
@@ -47,7 +47,7 @@ def appliquer_scan_sklansky(polygone_ordonne: List[Point]) -> List[Point]:
                 break
         
         # On a fini de nettoyer, on peut ajouter le 'point_teste'
-        # à la pile ("étape aller" [cite: 18])
+        # à la pile ("étape aller" )
         pile.append(point_teste)
         
     return pile

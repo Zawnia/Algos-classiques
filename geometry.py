@@ -1,5 +1,5 @@
 #Classes pour généraliser l'implémentation 
-
+from typing import List
 from dataclasses import dataclass
 
 @dataclass(frozen=True)
@@ -10,6 +10,7 @@ class Point:
     def __repr__(self):
         return f"Point({self.x}, {self.y})"
 
+Polygone = List[Point]
 
 #Outils géométriques
 
