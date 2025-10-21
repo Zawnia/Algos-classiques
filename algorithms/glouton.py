@@ -27,8 +27,7 @@ def trouver_enveloppe_jarvis(points: List[Point]) -> List[Point]:
         enveloppe.append(point_actuel)
         
         # 2. CHERCHER LE MEILLEUR CANDIDAT SUIVANT
-        # On doit trouver le point 'candidat_suivant' qui forme l'angle
-        # le plus "à gauche" (anti-horaire) par rapport à 'point_actuel'.
+        # On doit trouver le point 'candidat_suivant' qui forme l'angle le plus "à gauche" (anti-horaire) par rapport à 'point_actuel'.
         
         # On initialise le candidat avec n'importe quel point (sauf le point actuel)
         candidat_suivant = points[0]
@@ -63,8 +62,8 @@ def trouver_enveloppe_jarvis(points: List[Point]) -> List[Point]:
                     candidat_suivant = point_teste
 
         # 4. MISE À JOUR
-        # On a fini de tester tous les points. Le 'candidat_suivant'
-        # est le prochain point de l'enveloppe.
+        # On a fini de tester tous les points. Le 'candidat_suivant' est le prochain point de l'enveloppe.
+
         point_actuel = candidat_suivant
         
         # 5. CONDITION D'ARRÊT

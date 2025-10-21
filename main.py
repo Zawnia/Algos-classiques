@@ -5,6 +5,7 @@ from cas_de_test import generer_points_aleatoires, generer_points_cercle, genere
 from visualisation import afficher_enveloppe
 from algorithms.glouton import trouver_enveloppe_jarvis
 from algorithms.graham_scan import trouver_enveloppe_graham
+from algorithms.divide_conquer import trouver_enveloppe_diviser
 
 
 # =============================================================================
@@ -18,7 +19,7 @@ N_VISUEL = 100
 points_visu = generer_points_cercle(N_VISUEL // 2) # Test "cercle"
 
 # 2. Calculer l'enveloppe
-enveloppe_visu = trouver_enveloppe_jarvis(points_visu)
+enveloppe_visu = trouver_enveloppe_graham(points_visu)
 
 print(f"Test visuel (Jarvis) sur {len(points_visu)} points.")
 print(f"Points sur l'enveloppe : {len(enveloppe_visu)}")
@@ -53,7 +54,18 @@ algos_a_tester = [
          "nom": "Graham Scan (Cas Moyen)",
          "func": trouver_enveloppe_graham, 
          "generateur": generer_points_aleatoires
+    },
+    {
+        "nom": "Diviser pour Régner (Cas Moyen)",
+        "func": trouver_enveloppe_diviser,
+        "generateur": generer_points_aleatoires
+    },
+    {
+        "nom": "Diviser pour Régner (Pire cas)",
+        "func": trouver_enveloppe_diviser,
+        "generateur": generer_points_cercle
     }
+
 ]
 
 # Définir les tailles de 'n' (nombre de points) à tester

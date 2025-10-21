@@ -25,10 +25,7 @@ def appliquer_scan_sklansky(polygone_ordonne: List[Point]) -> List[Point]:
     for i in range(2, len(polygone_ordonne)):
         point_teste = polygone_ordonne[i]
         
-        # --- C'est le cœur de l'algorithme ---
-        # Tant qu'on a au moins 2 points dans la pile ET
-        # que le triplet (avant-dernier, dernier, point_teste)
-        # forme un virage à droite (orientation <= 0),
+        # Tant qu'on a au moins 2 points dans la pile ET que le triplet (avant-dernier, dernier, point_teste) forme un virage à droite (orientation <= 0),
         # c'est que le dernier point est inutile.
         
         while len(pile) >= 2:
@@ -43,11 +40,9 @@ def appliquer_scan_sklansky(polygone_ordonne: List[Point]) -> List[Point]:
                 pile.pop()
             else:
                 # C'est un virage à gauche, c'est bon
-                # On arrête de nettoyer pour ce 'point_teste'
                 break
         
-        # On a fini de nettoyer, on peut ajouter le 'point_teste'
-        # à la pile ("étape aller" )
+        # On a fini de nettoyer, on peut ajouter le 'point_teste' à la pile ("étape aller" )
         pile.append(point_teste)
         
     return pile

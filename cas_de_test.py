@@ -44,3 +44,11 @@ def generer_points_carre(n_par_cote: int, taille: int = 100) -> List[Point]:
         points.append(Point(taille, i * taille / (n_par_cote-1)))
         
     return points
+
+def generer_points_colineaires(n: int, y_val: int = 50) -> List[Point]:
+    """
+    Génère n points sur une ligne horizontale.
+    Pire cas (constant) pour Graham Scan.
+    """
+    coords_x = np.linspace(0, 100, n)
+    return [Point(x, y_val) for x in coords_x]
