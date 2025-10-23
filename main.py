@@ -41,17 +41,17 @@ print("\n--- Lancement de l'Analyse de Complexité ---")
 # C'est MODULAIRE : ajoutez vos futurs algos ici !
 algos_a_tester = [
     {
-        "nom": "Jarvis (Cas Moyen, aléatoire)",
+        "nom": "Glouton (Cas Moyen, aléatoire)",
         "func": trouver_enveloppe_glouton,
         "generateur": generer_points_aleatoires
     },
     {
-        "nom": "Jarvis (Pire Cas, cercle)",
+        "nom": "Glouton (Pire Cas, cercle)",
         "func": trouver_enveloppe_glouton,
         "generateur": generer_points_cercle
     },
     {
-         "nom": "Graham Scan (Cas Moyen)",
+         "nom": "Tri angles (Cas Moyen)",
          "func": trouver_enveloppe_sklanski, 
          "generateur": generer_points_aleatoires
     },
@@ -60,12 +60,6 @@ algos_a_tester = [
         "func": trouver_enveloppe_diviser,
         "generateur": generer_points_aleatoires
     },
-    {
-        "nom": "Diviser pour Régner (Pire cas)",
-        "func": trouver_enveloppe_diviser,
-        "generateur": generer_points_cercle
-    }
-
 ]
 
 # Définir les tailles de 'n' (nombre de points) à tester

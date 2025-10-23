@@ -24,9 +24,7 @@ def generer_points_cercle(N, rayon=10):
         # Calcule l'angle pour ce point
         angle = (i / N) * 2 * math.pi
 
-        # Calcule les coordonnées x, y
-        # On ajoute une minuscule gigue (jitter) pour éviter une colinéarité verticale/horizontale parfaite peut perturber certains algos de tri.
-        #gigue = random.uniform(-1e-9, 1e-9)
+        #Si besoin de jitte
         gigue = 0.0
 
         x = rayon * math.cos(angle) + gigue
