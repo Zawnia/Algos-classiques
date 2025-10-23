@@ -29,7 +29,6 @@ RAYON = 10
 ALGOS_A_TESTER = [
     trouver_enveloppe_glouton,
     trouver_enveloppe_sklanski,
-    trouver_enveloppe_diviser
 ]
 COULEURS_PLOT = ['#FF0000', '#0000FF', '#00AA00', '#FF00FF', '#FFA500']
 
