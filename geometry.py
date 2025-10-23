@@ -9,6 +9,17 @@ class Point:
 
     def __repr__(self):
         return f"Point({self.x}, {self.y})"
+    
+    def __eq__(self, other) -> bool:
+        """Permet de comparer deux points (utile pour les tests)."""
+        if not isinstance(other, Point):
+            return False
+        # Utiliser une tolérance pour les flottants si nécessaire
+        return self.x == other.x and self.y == other.y
+
+    def __hash__(self):
+        """Permet d'utiliser les points dans un set() ou un dict()."""
+        return hash((self.x, self.y))
 
 Polygone = List[Point]
 

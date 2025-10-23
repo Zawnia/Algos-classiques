@@ -5,7 +5,7 @@ from functools import cmp_to_key
 # On importe la fonction Sklansky réutilisable
 from algorithms.sklansky import appliquer_scan_sklansky
 
-def trouver_enveloppe_graham(points: List[Point]) -> List[Point]:
+def trouver_enveloppe_sklanski(points: List[Point]) -> List[Point]:
     """
     Calcule l'enveloppe convexe en utilisant le Parcours de Graham.
     Étape 1 : Tri par angle (O(n log n)) 

@@ -1,7 +1,7 @@
 from geometry import Point, orientation, distance_carre
 from typing import List
 
-def trouver_enveloppe_jarvis(points: List[Point]) -> List[Point]:
+def trouver_enveloppe_glouton(points: List[Point]) -> List[Point]:
     """
     Calcule l'enveloppe convexe d'un nuage de points
     en utilisant l'algorithme de la Marche de Jarvis (Glouton).

@@ -1,6 +1,8 @@
 import numpy as np
 from typing import List
 from geometry import Point
+import random
+import math
 
 def generer_points_aleatoires(n: int, x_max: int = 100, y_max: int = 100) -> List[Point]:
     """
@@ -13,21 +15,26 @@ def generer_points_aleatoires(n: int, x_max: int = 100, y_max: int = 100) -> Lis
     # Convertit les paires de coordonnées en objets Point
     return [Point(x, y) for x, y in zip(coords_x, coords_y)]
 
-def generer_points_cercle(n: int, centre_x: int = 50, centre_y: int = 50, rayon: int = 40) -> List[Point]:
+def generer_points_cercle(N, rayon=10):
     """
-    Génère n points distribués sur un cercle.
-    C'est le PIRE CAS pour Jarvis (O(n*h) -> O(n^2) car h=n).
+    Génère N points sur un cercle parfait en utilisant la trigonométrie.
     """
-    # Génère n angles entre 0 et 2*pi
-    angles = np.linspace(0, 2 * np.pi, n, endpoint=False)
-    
-    # Calcule les positions x, y sur le cercle
-    # On ajoute un petit "bruit" aléatoire pour éviter une colinéarité parfaite
-    bruit = 0.9 + 0.2 * np.random.rand(n)
-    coords_x = centre_x + (rayon * bruit) * np.cos(angles)
-    coords_y = centre_y + (rayon * bruit) * np.sin(angles)
-    
-    return [Point(x, y) for x, y in zip(coords_x, coords_y)]
+    points = []
+    for i in range(N):
+        # Calcule l'angle pour ce point
+        angle = (i / N) * 2 * math.pi
+
+        # Calcule les coordonnées x, y
+        # On ajoute une minuscule gigue (jitter) pour éviter une colinéarité verticale/horizontale parfaite peut perturber certains algos de tri.
+        #gigue = random.uniform(-1e-9, 1e-9)
+        gigue = 0.0
+
+        x = rayon * math.cos(angle) + gigue
+        y = rayon * math.sin(angle) + gigue
+
+        points.append(Point(x, y))
+
+    return points
 
 def generer_points_carre(n_par_cote: int, taille: int = 100) -> List[Point]:
     """

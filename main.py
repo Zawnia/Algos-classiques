@@ -1,10 +1,10 @@
 import time
 import matplotlib.pyplot as plt
-
+from typing import List
 from cas_de_test import generer_points_aleatoires, generer_points_cercle, generer_points_carre
 from visualisation import afficher_enveloppe
-from algorithms.glouton import trouver_enveloppe_jarvis
-from algorithms.graham_scan import trouver_enveloppe_graham
+from algorithms.glouton import trouver_enveloppe_glouton
+from algorithms.graham_scan import trouver_enveloppe_sklanski
 from algorithms.divide_conquer import trouver_enveloppe_diviser
 
 
@@ -19,7 +19,7 @@ N_VISUEL = 100
 points_visu = generer_points_cercle(N_VISUEL // 2) # Test "cercle"
 
 # 2. Calculer l'enveloppe
-enveloppe_visu = trouver_enveloppe_graham(points_visu)
+enveloppe_visu = trouver_enveloppe_diviser(points_visu)
 
 print(f"Test visuel (Jarvis) sur {len(points_visu)} points.")
 print(f"Points sur l'enveloppe : {len(enveloppe_visu)}")
@@ -42,17 +42,17 @@ print("\n--- Lancement de l'Analyse de Complexité ---")
 algos_a_tester = [
     {
         "nom": "Jarvis (Cas Moyen, aléatoire)",
-        "func": trouver_enveloppe_jarvis,
+        "func": trouver_enveloppe_glouton,
         "generateur": generer_points_aleatoires
     },
     {
         "nom": "Jarvis (Pire Cas, cercle)",
-        "func": trouver_enveloppe_jarvis,
+        "func": trouver_enveloppe_glouton,
         "generateur": generer_points_cercle
     },
     {
          "nom": "Graham Scan (Cas Moyen)",
-         "func": trouver_enveloppe_graham, 
+         "func": trouver_enveloppe_sklanski, 
          "generateur": generer_points_aleatoires
     },
     {
