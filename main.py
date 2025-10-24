@@ -46,11 +46,6 @@ algos_a_tester = [
         "generateur": generer_points_aleatoires
     },
     {
-        "nom": "Glouton (Pire Cas, cercle)",
-        "func": trouver_enveloppe_glouton,
-        "generateur": generer_points_cercle
-    },
-    {
          "nom": "Tri angles (Cas Moyen)",
          "func": trouver_enveloppe_sklanski, 
          "generateur": generer_points_aleatoires
@@ -63,7 +58,7 @@ algos_a_tester = [
 ]
 
 # Définir les tailles de 'n' (nombre de points) à tester
-tailles_n = [10, 50, 100, 250, 500, 750, 1000]
+tailles_n = [10, 50, 100, 250, 500, 750, 1000, 5000, 10000, 20000]
 
 # Dictionnaire pour stocker tous les résultats
 resultats_temps = {}
